@@ -1,5 +1,11 @@
-function speakArea() {
-  var userInput = $("#input").val();
+function talkBot() {
+  $("#chat-area").html($("#input").val());
 
-console.log(userInput);
+
+}
+
+var questionConversion = {
+  "how old are you?": old,
+  "what is your name?":name,
+  "what time is it?":is
 }
