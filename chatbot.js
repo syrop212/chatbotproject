@@ -1,17 +1,20 @@
 var question;
-function talkBot() {
-  question = $("#chat-area").html($("#input").val());
-
-
-    var answer = questionConversion[questionArray];
-
-
-}
+var answer;
 
 var questionConversion = {
-  "how old are you?": "old",
-  "what is your name?": "name",
-  "what time is it?": "time"
+  "how old are you?": "I was created, not born",
+  "what is your name?": "Lex",
+  "what time is it?": "It is " + " " + 
 }
 
-var questionArray = ["how old are you?", "what is your name?", "what time is it?"];
+
+function talkBot() {
+  question = $("#input").val();
+
+  $("#chat-area").prepend(question + "<br>");
+
+  answer = questionConversion[question];
+
+  $("#chat-area").prepend(answer + "<br>");
+
+}
