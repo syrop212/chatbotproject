@@ -4,7 +4,7 @@ var answer;
 var questionConversion = {
   "how old are you?": "I was created, not born",
   "what is your name?": "Lex",
-  "what time is it?": "It is " + " " + 
+  "what time is it?": "It is " + " " +
 }
 
 
@@ -17,4 +17,9 @@ function talkBot() {
 
   $("#chat-area").prepend(answer + "<br>");
 
+}
+
+
+function digitized() {
+  
 }
