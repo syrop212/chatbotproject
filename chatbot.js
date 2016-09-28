@@ -4,13 +4,25 @@ var answer;
 var questionConversion = {
   "how old are you?": "I was created, not born",
   "what is your name?": "Lex",
-  //"what time is it?": "It is " + " " +
+ "what time is it?": "It is " + returnTime( ) + "."
 }
 
-var myNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-var rand = Math.floor((Math.floor() * myNumbers.length));
+function returnTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  m = checkTime(m);
+  $("#chat-area").val(h + ":" + m);
+  var t = setTimeout(returnTime, 500);
+}
+function checkTime(i) {
+  if(i < 10) {i = "0" + i};
+  return i;
+}
 
+
+var fallBack = ["What?", "Sigh", "Say it again", "Yeah...."];
 
 function talkBot() {
   question = $("#input").val();
@@ -20,9 +32,12 @@ function talkBot() {
   answer = questionConversion[question];
 
   if(answer === undefined) {
-    $("#chat-area").prepend("What is it again?" + "<br>");
+    var rand = Math.floor((Math.random(rand) * fallBack.length));
+    var fallBackAnswer = fallBack[rand];
+    $("#chat-area").prepend(fallBackAnswer + "<br>");
   }
-else {
+  else {
   $("#chat-area").prepend(answer + "<br>");
   }
+
 }
