@@ -4,21 +4,16 @@ var answer;
 var questionConversion = {
   "how old are you?": "I was created, not born",
   "what is your name?": "Lex",
- "what time is it?": "It is " + returnTime( ) + "."
+ "what time is it?": "It is " + returnTime() + "."
 }
 
 
 function returnTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  m = checkTime(m);
-  $("#chat-area").val(h + ":" + m);
-  var t = setTimeout(returnTime, 500);
-}
-function checkTime(i) {
-  if(i < 10) {i = "0" + i};
-  return i;
+  var now = new Date(Date.now());
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var timeString = hours + ":" + minutes;
+  return timeString;
 }
 
 
