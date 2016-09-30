@@ -20,7 +20,10 @@ function returnTime() {
 var fallBack = ["What?", "Sigh", "Say it again", "Yeah...."];
 
 function talkBot() {
+
   question = $("#input").val();
+
+  question = question.toLowerCase();
 
   $("#chat-area").prepend(question + "<br>");
 
@@ -30,9 +33,15 @@ function talkBot() {
     var rand = Math.floor((Math.random(rand) * fallBack.length));
     var fallBackAnswer = fallBack[rand];
     $("#chat-area").prepend(fallBackAnswer + "<br>");
-  }
+}
   else {
   $("#chat-area").prepend(answer + "<br>");
   }
 
 }
+
+    $(document).keydown(function(e) {
+     if (e.keyCode == 13) {
+      talkBot();
+     }
+    });
